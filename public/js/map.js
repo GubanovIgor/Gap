@@ -4,12 +4,13 @@ let myMap
 function init() {
   myMap = new ymaps.Map("map", {
     center: [55.76, 37.64],
-    zoom: 9,
+    zoom: 1,
   });
 }
 
 document.addEventListener('change', async (e) => {
   e.preventDefault();
+  myMap.geoObjects.removeAll();
   // const test = document.getElementById('test')
   // test.classList.add('test');
 
@@ -32,7 +33,18 @@ document.addEventListener('change', async (e) => {
     body: JSON.stringify(formData),
   });
 
-  const data = resp.json();
+  const data = await resp.json();
+  console.log(data);
+
+  for (let i = 0; i < data.length; i += 1) {
+    newPlacemark = new ymaps.Placemark(data[i].coord, {
+      content: 'Москва!',
+      balloonContent: 'Столица России',
+    });
+    myMap.geoObjects.add(newPlacemark);
+  }
+
+  console.log(myMap.geoObjects);
 
   // myPlacemark = new ymaps.Placemark([55.75, 37.64], {
   //   content: 'Москва!',

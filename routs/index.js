@@ -16,7 +16,7 @@ router.post('/places', async (req, res) => {
     // age: req.body.ageSelect,
   });
   console.log(places);
-  res.end();
+  res.json(places);
 })
 
 module.exports = router;
