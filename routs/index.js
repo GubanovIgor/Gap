@@ -1,22 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const { Place } = require('../models/Place');
+const { Club } = require('../models/Club');
 
 router.get('/', (req, res) => {
   res.render('index');
 })
 
-router.post('/places', async (req, res) => {
-  // console.log(req.body);
-  const height = req.body.heightSelect.split('-')
-  console.log(height);
-  const places = await Place.find({
-    hair: req.body.hairSelect,
-    height: { $gte: height[0], $lte: height[1] },
-    // age: req.body.ageSelect,
+router.post('/clubs', async (req, res) => {
+  const rate = req.body.rateSelect.split('-')
+  const price = req.body.priceSelect.split('-')
+  console.log(rate);
+  console.log(price)
+  const clubs = await Club.find({
+    equipment: req.body.equipmentSelect,
+    price: { $gte: price[0], $lte: price[1] },
+    rate: { $gte: rate[0], $lte: rate[1] },
   });
-  console.log(places);
-  res.json(places);
+  console.log(clubs);
+  res.json(clubs);
 })
 
 module.exports = router;

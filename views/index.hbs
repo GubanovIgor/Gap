@@ -1,27 +1,42 @@
-<h1>Карта с дырками</h1>
-<div id="test"></div>
-<div id="map" class="map">
-</div>
-<select name="hair" id="hair-select">
-  <option disabled selected>Выберите цвет волос</option>
-  <option value="Blond">Blond</option>
-  <option value="Brown">Brown</option>
-  <option value="Black">Black</option>
-  <option value="Red">Red</option>
-  <option value="Без волос">Без волос</option>
-</select>
-<br>
-<select name="height" id="height-select">
-  <option disabled selected>Выберите рост</option>
-  <option value="120-140">120-140</option>
-  <option value="141-160">141-160</option>
-  <option value="161-180">161-180</option>
-  <option value="181-200">181-200</option>
-</select>
-<br>
-<select name="age" id="age-select">
-  <option disabled selected>Выберите возраст</option>
-  <option value="Молодая">Молодая</option>
-  <option value="Старая">Старая</option>
-</select>
+<div class="container">
+  <h1>Gap</h1>
+  <div id="map" class="map">
+  </div>
 
+  <div class="input-group mb-3">
+    <select class="custom-select" id="equipment-select">
+      <option selected value="any">Любой</option>
+      <option value="PS">PlayStation VR</option>
+      <option value="HTC">HTC Vive</option>
+      <option value="Oculus">Oculus</option>
+      <option value="Fullbody">Fullbody VR</option>
+    </select>
+    <div class="input-group-append">
+      <label class="input-group-text" for="equipment-select">Оборудование</label>
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <select class="custom-select" id="rate-select">
+      <option selected value="0-100">Любой</option>
+      <option value="40-60">40-60</option>
+      <option value="60-80">60-80</option>
+      <option value="80-100">80-100</option>
+    </select>
+    <div class="input-group-append">
+      <label class="input-group-text" for="rate-select">Рейтинг</label>
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <select class="custom-select" id="price-select">
+      <option selected value="300-5000">Любая</option>
+      <option value="300-450">300-450</option>
+      <option value="450-700">450-700</option>
+      <option value="700-5000">700+</option>
+    </select>
+    <div class="input-group-append">
+      <label class="input-group-text" for="price-select">Стоимость</label>
+    </div>
+  </div>
+</div>

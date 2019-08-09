@@ -28,7 +28,7 @@ app.use('/', indexRouter);
 const port = process.env.PORT || 4000;
 
 app.listen(port, () => {
-  console.log('I\'m ready, pussy!');
+  console.log('4000');
 })
 
 module.exports = app;
