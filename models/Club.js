@@ -9,6 +9,7 @@ const clubSchema = new mongoose.Schema({
   rate: Number,
   price: Number,
   img: String,
+  site: String,
 })
 
 const Club = mongoose.model('Club', clubSchema);

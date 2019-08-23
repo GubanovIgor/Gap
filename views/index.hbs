@@ -1,5 +1,8 @@
 <div class="container">
-  <h1>Gap</h1>
+  <div class="head-container">
+    <h1>Gap</h1>
+    <button type="button" id="add-button" class="btn btn-outline-secondary">Добавить клуб</button>
+  </div>
   <div id="map" class="map">
   </div>
 
@@ -39,4 +42,39 @@
       <label class="input-group-text" for="price-select">Стоимость</label>
     </div>
   </div>
+</div>
+
+<div id="pop-up" class="pop-up hidden"></div>
+<div id="inner-pop-up" class="inner-pop-up hidden">
+  <h3>Заполните анкету</h3>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Название клуба" aria-describedby="basic-addon1">
+  </div>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Адрес" aria-describedby="basic-addon1">
+  </div>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Стоимость 1 часа игры" aria-describedby="basic-addon1">
+  </div>
+
+  <h5>Выберите оборудование</h5>
+  <div class="check-container">
+    <label class="container1">PlayStation VR
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container1">HTC Vive
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container1">Oculus
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container1">Fullbody VR
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </label>
+  </div>
+  <button type="button" class="btn btn-success">Добавить клуб</button>
 </div>

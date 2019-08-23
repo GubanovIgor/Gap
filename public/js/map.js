@@ -11,8 +11,6 @@ function init() {
 document.addEventListener('change', async (e) => {
   e.preventDefault();
   myMap.geoObjects.removeAll();
-  // const test = document.getElementById('test')
-  // test.classList.add('test');
 
   const rateSelect = document.getElementById('rate-select').value
   const equipmentSelect = document.getElementById('equipment-select').value
@@ -24,8 +22,6 @@ document.addEventListener('change', async (e) => {
     priceSelect,
   }
 
-  console.log(formData);
-
   const resp = await fetch('/clubs', {
     method: 'POST',
     headers: {
@@ -36,19 +32,35 @@ document.addEventListener('change', async (e) => {
   });
 
   const data = await resp.json();
-  console.log(data);
 
   for (let i = 0; i < data.length; i += 1) {
+    console.log(data[i].site);
 
     newPlacemark = new ymaps.Placemark(data[i].coord, {
       content: 'Москва!',
-      balloonContent: `<p>Адрес: ${data[i].address}</p>` +
-        `<p>Стоимость: ${data[i].price} р/30мин</p>` +
-        `<img src=${data[i].img}>`,
+      balloonContent: `<p><strong>Название:</strong> ${data[i].title}</p>
+      <p><strong>Адрес:</strong> ${data[i].address}</p>
+      <p><strong>Стоимость:</strong> ${data[i].price} ₽/30мин</p>
+      <a href="${data[i].site}" alt="">веб-сайт</a>
+      <div><img class="baloon-img" src=${data[i].img}></div>`,
     });
 
     myMap.geoObjects.add(newPlacemark);
   }
+})
 
-  console.log(myMap.geoObjects);
+const popup = document.getElementById('pop-up');
+const innerPopup = document.getElementById('inner-pop-up');
+
+const addButton = document.getElementById('add-button');
+addButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  popup.classList.remove('hidden');
+  innerPopup.classList.remove('hidden');
+})
+
+popup.addEventListener('click', (e) => {
+  e.preventDefault();
+  popup.classList.add('hidden');
+  innerPopup.classList.add('hidden');
 })

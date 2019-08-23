@@ -9,14 +9,11 @@ router.get('/', (req, res) => {
 router.post('/clubs', async (req, res) => {
   const rate = req.body.rateSelect.split('-')
   const price = req.body.priceSelect.split('-')
-  console.log(rate);
-  console.log(price)
   const clubs = await Club.find({
     equipment: req.body.equipmentSelect,
     price: { $gte: price[0], $lte: price[1] },
     rate: { $gte: rate[0], $lte: rate[1] },
   });
-  console.log(clubs);
   res.json(clubs);
 })
 
