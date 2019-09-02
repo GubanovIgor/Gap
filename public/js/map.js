@@ -34,7 +34,7 @@ document.addEventListener('change', async (e) => {
   const data = await resp.json();
 
   for (let i = 0; i < data.length; i += 1) {
-    console.log(data[i].site);
+    console.log(data[i].coord);
 
     newPlacemark = new ymaps.Placemark(data[i].coord, {
       content: 'Москва!',
