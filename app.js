@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 
 const indexRouter = require('./routs/index');
 
+require('dotenv').config();
+
 const hbs = handlebars.create({
   defaultLayout: 'layout',
   extname: 'hbs',
@@ -12,8 +14,8 @@ const hbs = handlebars.create({
   partialsDir: path.join(__dirname, 'views'),
 });
 
-mongoose.connect('mongodb://localhost:27017/gap', { useNewUrlParser: true, useCreateIndex: true });
 
+mongoose.connect(`mongodb+srv://applecake:${process.env.PASSWORD}@gap-jusal.mongodb.net/gap?retryWrites=true&w=majority`, { useNewUrlParser: true, useCreateIndex: true });
 const app = express()
 
 app.engine('hbs', hbs.engine);
